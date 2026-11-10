@@ -52,7 +52,7 @@ const CoursesPage = () => {
 
   return (
     <main>
-      <h1>StudyTrack</h1>
+      <h1>Mina kurser</h1>
 
       {courses.length === 0 ? (
         <p>Du har inga kurser ännu.</p>

@@ -3,6 +3,7 @@ import RootLayout from './pages/RootLayout'
 import CoursesPage from './pages/CoursesPage'
 import NewCoursePage from './pages/NewCoursePage'
 import './App.css'
+import CourseDetailPage from './pages/CourseDetailPage'
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: CoursesPage },
       { path: 'courses/new', Component: NewCoursePage },
+      { path: 'courses/:id', Component: CourseDetailPage },
     ],
   },
 ])
