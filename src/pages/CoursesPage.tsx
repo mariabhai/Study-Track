@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import CourseCard from '../components/CourseCard'
+import StatusFilter from '../components/StatusFilter'
+import type { Course, Filter } from '../types'
 import { API_BASE_URL, HANDLE } from '../config'
-import type { Course } from '../types'
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState<Course[]>([])
+  const [selectedStatus, setSelectedStatus] = useState<Filter>('Alla')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -50,19 +53,28 @@ const CoursesPage = () => {
     return <p role="alert">{error}</p>
   }
 
+  const filteredCourses = courses.filter(
+    (course) =>
+      selectedStatus === 'Alla' || course.status === selectedStatus,
+  )
+
   return (
     <main>
       <h1>Mina kurser</h1>
 
+      <StatusFilter
+        selectedStatus={selectedStatus}
+        onStatusChange={setSelectedStatus}
+      />
+
       {courses.length === 0 ? (
         <p>Du har inga kurser ännu.</p>
+      ) : filteredCourses.length === 0 ? (
+        <p>Det finns inga kurser med vald status.</p>
       ) : (
         <div>
-          {courses.map((course) => (
-            <article key={course.id}>
-              <h2>{course.title}</h2>
-              <p>{course.status}</p>
-            </article>
+          {filteredCourses.map((course) => (
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
       )}

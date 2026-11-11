@@ -12,3 +12,5 @@ export type Course = {
   createdAt: string
   updatedAt: string
 }
+
+export type Filter = 'Alla' | 'Kommande' | 'Pågående' | 'Avslutad'
