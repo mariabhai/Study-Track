@@ -85,6 +85,9 @@ const CourseDetailPage = () => {
 
       <h2>{course.title}</h2>
       <p>Status: {course.status}</p>
+      <Link to={`/courses/${course.id}/edit`}>
+  Redigera kurs
+</Link>
     </main>
   )
 }
