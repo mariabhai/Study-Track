@@ -5,6 +5,7 @@ import NewCoursePage from './pages/NewCoursePage'
 import './App.css'
 import CourseDetailPage from './pages/CourseDetailPage'
 import EditCoursePage from './pages/EditCoursePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { path: 'courses/new', Component: NewCoursePage },
       { path: 'courses/:id', Component: CourseDetailPage },
       { path: 'courses/:id/edit', Component: EditCoursePage },
+      { path: '*', Component: NotFoundPage },
     ],
   },
 ])
