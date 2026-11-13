@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import examensmossa from '../assets/examensmössa.png'
+import examensmossa from '../assets/examensmossa.png'
 import CourseCard from '../components/CourseCard'
 import StatusFilter from '../components/StatusFilter'
 import type { Course, Filter } from '../types'

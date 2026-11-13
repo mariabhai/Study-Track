@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router'
-import examensmossa from '../assets/examensmössa.png'
+import examensmossa from '../assets/examensmossa.png'
 
 const RootLayout = () => {
   return (
