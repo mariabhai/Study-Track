@@ -124,6 +124,7 @@ const EditCoursePage = () => {
         key={course.id}
         initialTitle={course.title}
         initialStatus={course.status}
+        initialImageUrl={course.imageUrl}
         submitLabel="Spara ändringar"
         onSave={handleSave}
       />

@@ -17,7 +17,7 @@ const StatusFilter = ({
   onStatusChange,
 }: StatusFilterProps) => {
   return (
-    <div role="group" aria-label="Filtrera kurser efter status">
+    <div className="status-filter" role="group" aria-label="Filtrera kurser efter status">
       {statuses.map((status) => (
         <button
           key={status}

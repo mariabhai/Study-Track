@@ -1,10 +1,14 @@
 import { NavLink, Outlet } from 'react-router'
+import examensmossa from '../assets/examensmössa.png'
 
 const RootLayout = () => {
   return (
     <>
-      <header>
-        <h1>StudyTrack</h1>
+      <header className="site-header">
+        <NavLink className="brand" to="/">
+          <img className="brand-icon" src={examensmossa} alt="" />
+          StudyTrack
+        </NavLink>
 
         <nav aria-label="Huvudnavigation">
           <NavLink to="/" end>

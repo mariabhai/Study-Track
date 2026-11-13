@@ -3,12 +3,14 @@ import { useState, type SubmitEvent } from 'react'
 export type CourseFormData = {
   title: string
   status: string
+  imageUrl: string
 }
 
 type CourseFormProps = {
   onSave: (course: CourseFormData) => Promise<boolean>
   initialTitle?: string
   initialStatus?: string
+  initialImageUrl?: string
   submitLabel?: string
 }
 
@@ -16,11 +18,13 @@ const CourseForm = ({
   onSave,
   initialTitle = '',
   initialStatus = 'Kommande',
+  initialImageUrl = '',
   submitLabel = 'Spara kurs',
 }: CourseFormProps) => {
   const [formData, setFormData] = useState<CourseFormData>({
     title: initialTitle,
     status: initialStatus,
+    imageUrl: initialImageUrl,
   })
   const [error, setError] = useState('')
   const [isSaving, setIsSaving] = useState(false)
@@ -95,6 +99,22 @@ const CourseForm = ({
             <option value="Pågående">Pågående</option>
             <option value="Avslutad">Avslutad</option>
           </select>
+        </div>
+
+        <div>
+          <label htmlFor="imageUrl">Bildlänk</label>
+          <input
+            id="imageUrl"
+            type="url"
+            placeholder="https://exempel.se/kursbild.jpg"
+            value={formData.imageUrl}
+            onChange={(event) =>
+              setFormData({
+                ...formData,
+                imageUrl: event.target.value,
+              })
+            }
+          />
         </div>
 
         <button type="submit">

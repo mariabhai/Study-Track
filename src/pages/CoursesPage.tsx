@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import examensmossa from '../assets/examensmössa.png'
 import CourseCard from '../components/CourseCard'
 import StatusFilter from '../components/StatusFilter'
 import type { Course, Filter } from '../types'
@@ -60,7 +61,14 @@ const CoursesPage = () => {
 
   return (
     <main>
-      <h1>Mina kurser</h1>
+      <section className="course-intro">
+        <div>
+          <p className="eyebrow">DIN UTBILDNINGSRESA</p>
+          <h1>Mina kurser</h1>
+          <p>Översikt över dina kurser och deras status.</p>
+        </div>
+        <img className="intro-art" src={examensmossa} alt="" />
+      </section>
 
       <StatusFilter
         selectedStatus={selectedStatus}
@@ -72,12 +80,19 @@ const CoursesPage = () => {
       ) : filteredCourses.length === 0 ? (
         <p>Det finns inga kurser med vald status.</p>
       ) : (
-        <div>
+        <div className="course-grid">
           {filteredCourses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
       )}
+
+      <section className="course-summary" aria-label="Sammanfattning av utbildningen">
+        <div><strong>{courses.length}</strong><span>Totalt antal kurser</span></div>
+        <div><strong>{courses.filter((course) => course.status === 'Avslutad').length}</strong><span>Avslutade</span></div>
+        <div><strong>{courses.filter((course) => course.status === 'Pågående').length}</strong><span>Pågående</span></div>
+        <div><strong>{courses.filter((course) => course.status === 'Kommande').length}</strong><span>Kommande</span></div>
+      </section>
     </main>
   )
 }

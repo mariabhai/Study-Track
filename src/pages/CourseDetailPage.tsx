@@ -124,6 +124,10 @@ const CourseDetailPage = () => {
     <main>
       <Link to="/">Tillbaka till kurserna</Link>
 
+      {course.imageUrl && (
+        <img src={course.imageUrl} alt="" className="course-image" />
+      )}
+
       <h2>{course.title}</h2>
       <p>Status: {course.status}</p>
 
