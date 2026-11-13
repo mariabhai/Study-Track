@@ -30,6 +30,20 @@ button:hover:not(:disabled) { background: #40364f; }
 .course-card h2 { font-size: 14px; line-height: 1.4; margin: 12px 0 16px; }
 .course-card h2 a { color: #f4f3fa; text-decoration: none; }
 .course-image { display: block; width: 100%; max-width: 600px; height: 200px; object-fit: cover; border-radius: 14px; margin: 16px 0; }
+.course-detail-image {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 400px;
+  border-radius: 14px;
+  margin: 24px 0;
+}
+.course-description { max-width: 760px; margin: 28px 0; padding: 24px; border: 1px solid #393647; border-radius: 18px; background: #22222f; }
+.course-duration { color: #c8a7e8; font-weight: 600; }
+.course-description h3 { margin: 16px 0; }
+.course-description ul { padding-left: 22px; margin: 0; }
+.course-description li { color: #d1cfdd; line-height: 1.7; margin-bottom: 10px; overflow-wrap: anywhere; }
 .course-card .course-image {
   height: 150px;
   object-fit: cover;
@@ -82,3 +96,5 @@ main > button { margin: 16px; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+#tags-help { color: #c3bfd1; font-size: 13px; margin-bottom: 8px; }

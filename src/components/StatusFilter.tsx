@@ -25,7 +25,7 @@ const StatusFilter = ({
           aria-pressed={selectedStatus === status}
           onClick={() => onStatusChange(status)}
         >
-          {status}
+          {status === 'Avslutad' ? 'Avslutade' : status}
         </button>
       ))}
     </div>

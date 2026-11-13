@@ -125,11 +125,24 @@ const CourseDetailPage = () => {
       <Link to="/">Tillbaka till kurserna</Link>
 
       {course.imageUrl && (
-        <img src={course.imageUrl} alt="" className="course-image" />
+        <img src={course.imageUrl} alt="" className="course-detail-image" />
       )}
 
       <h2>{course.title}</h2>
       <p>Status: {course.status}</p>
+
+      {course.subtitle && <p className="course-duration">{course.subtitle}</p>}
+
+      {course.tags.length > 0 && (
+        <section className="course-description" aria-labelledby="course-topics-heading">
+          <h3 id="course-topics-heading">Utbildningsmoment</h3>
+          <ul>
+            {course.tags.map((topic) => (
+              <li key={topic}>{topic}</li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {!isDeleting && (
         <Link to={`/courses/${course.id}/edit`}>
