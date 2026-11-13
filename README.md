@@ -1,75 +1,96 @@
-# React + TypeScript + Vite
+# StudyTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudyTrack är en kursöversikt över min utbildning, byggd med React och TypeScript som en individuell inlämningsuppgift.
 
-Currently, two official plugins are available:
+## Länkar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- GitHub: https://github.com/mariabhai/Study-Track
+- Vercel: https://study-track-wheat.vercel.app
 
-## React Compiler
+## Funktioner
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Visa alla kurser som kurskort.
+- Filtrera på Alla, Kommande, Pågående och Avslutade.
+- Visa en detaljsida med bild, status, kurspoäng och längd samt utbildningsmoment.
+- Skapa, redigera och ta bort kurser.
+- Visa laddningsindikatorer och felmeddelanden vid API-anrop.
+- Visa en 404-sida för adresser som inte finns.
+- Responsiv design för mobil, surfplatta och dator.
 
-## Expanding the ESLint configuration
+## Teknik
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- React Router
+- CSS
+- Fetch API
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Kör projektet lokalt
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Du behöver ha Node.js och npm installerat.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Klona projektet:
 
+   ```bash
+   git clone https://github.com/mariabhai/Study-Track.git
+   cd Study-Track
+   ```
+
+2. Installera beroenden:
+
+   ```bash
+   npm install
+   ```
+
+3. Starta utvecklingsservern:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Öppna adressen som visas i terminalen.
+
+## Övriga kommandon
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Kontrollerar TypeScript och bygger appen för publicering.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run lint
 ```
+
+Kontrollerar koden med ESLint.
+
+```bash
+npm run preview
+```
+
+Visar den byggda appen lokalt efter att du kört build.
+
+## API
+
+Appen använder Shelf API för att hämta, skapa, ändra och ta bort kurser.
+
+- Dokumentation: https://shelf-api-mu.vercel.app/docs
+- Handle: `maria-studytrack`
+- API-adress: https://shelf-api-mu.vercel.app/api/maria-studytrack/items
+
+API-inställningarna finns i `src/config.ts`.
+
+API:et kallar posterna `items`, men i appen visas de som kurser.
+Kurslängd sparas i `subtitle` och utbildningsmoment i `tags`.
+
+Shelf API saknar inloggning. Handle skiljer olika samlingar åt,
+men alla som känner till det kan ändra innehållet. 
+
+## Betygsnivå
+
+Projektet är byggt för G-kraven med CRUD, komponenter med props,
+routing, TypeScript, laddningsindikatorer och felhantering.
+
+VG-funktionerna med egna fetch-hooks och ett filter som sparas
+med useLocalStorage är inte implementerade.
