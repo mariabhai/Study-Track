@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import examensmossa from '../assets/examensmossa.png'
+import examensmossa from '../assets/examensmossa-small.webp'
 import CourseCard from '../components/CourseCard'
 import StatusFilter from '../components/StatusFilter'
 import type { Course, Filter } from '../types'
@@ -67,7 +67,7 @@ const CoursesPage = () => {
           <h1>Mina kurser</h1>
           <p>Översikt över dina kurser och deras status.</p>
         </div>
-        <img className="intro-art" src={examensmossa} alt="" />
+        <img className="intro-art" src={examensmossa} width="220" height="160" alt="" />
       </section>
 
       <StatusFilter

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 import { API_BASE_URL, HANDLE } from '../config'
 import type { Course } from '../types'
+import { optimizeImage } from '../utils/images'
 
 const CourseDetailPage = () => {
   const { id } = useParams()
@@ -125,7 +126,7 @@ const CourseDetailPage = () => {
       <Link to="/">Tillbaka till kurserna</Link>
 
       {course.imageUrl && (
-        <img src={course.imageUrl} alt="" className="course-detail-image" />
+        <img src={optimizeImage(course.imageUrl, 1200)} alt="" className="course-detail-image" />
       )}
 
       <h2>{course.title}</h2>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import type { Course } from '../types'
+import { courseImageSizes, courseImageSrcSet, optimizeImage } from '../utils/images'
 
 type CourseCardProps = {
   course: Course
@@ -9,7 +10,13 @@ const CourseCard = ({ course }: CourseCardProps) => {
   return (
     <article className="course-card">
       {course.imageUrl ? (
-        <img src={course.imageUrl} alt="" className="course-image" />
+        <img
+          src={optimizeImage(course.imageUrl, 640)}
+          srcSet={courseImageSrcSet(course.imageUrl)}
+          sizes={courseImageSizes}
+          alt=""
+          className="course-image"
+        />
       ) : (
         <div className="course-placeholder" aria-hidden="true">⌘</div>
       )}
