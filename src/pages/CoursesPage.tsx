@@ -81,8 +81,12 @@ const CoursesPage = () => {
         <p>Det finns inga kurser med vald status.</p>
       ) : (
         <div className="course-grid">
-          {filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+          {filteredCourses.map((course, index) => (
+            <CourseCard
+              key={course.id}
+              course={course}
+              prioritizeImage={index === filteredCourses.findIndex((item) => Boolean(item.imageUrl))}
+            />
           ))}
         </div>
       )}

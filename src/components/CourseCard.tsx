@@ -4,9 +4,10 @@ import { courseImageSizes, courseImageSrcSet, optimizeImage } from '../utils/ima
 
 type CourseCardProps = {
   course: Course
+  prioritizeImage?: boolean
 }
 
-const CourseCard = ({ course }: CourseCardProps) => {
+const CourseCard = ({ course, prioritizeImage = false }: CourseCardProps) => {
   return (
     <article className="course-card">
       {course.imageUrl ? (
@@ -14,6 +15,8 @@ const CourseCard = ({ course }: CourseCardProps) => {
           src={optimizeImage(course.imageUrl, 640)}
           srcSet={courseImageSrcSet(course.imageUrl)}
           sizes={courseImageSizes}
+          fetchPriority={prioritizeImage ? 'high' : 'auto'}
+          loading="eager"
           alt=""
           className="course-image"
         />
